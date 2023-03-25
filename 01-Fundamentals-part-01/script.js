@@ -21,3 +21,5 @@ sum *= 4; // sum = sum * 4 => 100
 sum++; //sum = sum + 1
 sum-- //sum = sum - 1 
 console.log(sum)
+
+//Comparison Operator
