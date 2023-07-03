@@ -18,6 +18,7 @@ Data 2
 */
 
 //My Logic
+
 // const calAverage = (score_1, score_2, score_3, score_4, score_5, score_6) => {
 //   const avgDolphins = (score_1 + score_2 + score_3) / 3;
 //   const avgKoalas = (score_4 + score_5 + score_6) / 3;

@@ -177,7 +177,7 @@ const describePopulation = (country, population) => {
   )}% of the world.`;
 };
 
-// console.log(describePopulation(country, population));
+console.log(describePopulation(country, population));
 
 //LECTURE: Functions Calling Other Functions
 
