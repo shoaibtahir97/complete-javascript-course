@@ -1,8 +1,8 @@
 // //Values and Variables
-const country = 'Pakistan';
-const continent = 'Asia';
-let population = 231400000;
-33000000;
+const country = "Pakistan";
+const continent = "Asia";
+let population = 231;
+// 33000000;
 // /*
 // console.log('country: ',country);
 // console.log('continent: ',continent);
@@ -22,7 +22,7 @@ let language;
 // */
 
 // // let, const and var
-language = 'Urdu';
+language = "Urdu";
 // console.log(language);
 
 // //Basic Operators
@@ -118,6 +118,77 @@ const averagePopulation = 33000000;
 
 //LECTURE: The Conditional (Ternary) Operator
 
-population > averagePopulation
-  ? console.log(`${country}'s population is above average`)
-  : console.log(`${country}'s population is below average`);
+// population > averagePopulation
+//   ? console.log(`${country}'s population is above average`)
+//   : console.log(`${country}'s population is below average`);
+
+const capitalCity = "Islamabad";
+
+//LECTURE: Functions
+// function describeCountry(country, population, capitalCity) {
+//   const descriptionOfCountry = `${country} has ${population} people and its capital is ${capitalCity}`;
+//   return descriptionOfCountry;
+// }
+
+// const result = describeCountry(country, population, capitalCity);
+// console.log(result);
+
+// LECTURE: Function Declaration VS Expression
+
+//Function Declaration
+// function percentageOfWorld1(population) {
+//   const percentageInWorld = (population / 7900) * 100;
+//   return percentageInWorld.toFixed(1);
+// }
+
+// const result11 = percentageOfWorld1(1412);
+// const result12 = percentageOfWorld1(1408);
+// const result13 = percentageOfWorld1(339);
+// console.log(`${result11}%`);
+// console.log(`${result12}%`);
+// console.log(`${result13}%`);
+
+// //Function Expression
+// const percentageOfWorld2 = function (population) {
+//   const percentage = (population / 7900) * 100;
+//   return percentage.toFixed(1);
+// };
+
+// const result21 = percentageOfWorld2(276);
+// const result22 = percentageOfWorld2(236);
+// const result23 = percentageOfWorld2(219);
+// console.log(`${result21}%`);
+// console.log(`${result22}%`);
+// console.log(`${result23}%`);
+
+//Lecture: Arrow Function
+
+const percentageOfWorld3 = (population) =>
+  (percentage = (population / 7900) * 100);
+
+// console.log(percentageOfWorld3(population));
+
+//LECTURE: Functions Calling Other Functions
+
+const describePopulation = (country, population) => {
+  const percentageInWorld = percentageOfWorld3(population);
+  return `${country} has  ${population} million people which is about ${percentageInWorld.toFixed(
+    2
+  )}% of the world.`;
+};
+
+// console.log(describePopulation(country, population));
+
+//LECTURE: Functions Calling Other Functions
+
+const fruitPieces = (fruit) => {
+  return fruit * 4;
+};
+
+const fruitProcessor = (apple, mango) => {
+  const applePieces = fruitPieces(apple);
+  const mangoPieces = fruitPieces(mango);
+  return `Juice with ${applePieces} apple and ${mangoPieces} mango pieces is ready`;
+};
+
+console.log(fruitProcessor(3, 2));
