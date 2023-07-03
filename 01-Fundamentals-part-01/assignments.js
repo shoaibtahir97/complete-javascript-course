@@ -136,10 +136,10 @@ const capitalCity = "Islamabad";
 // LECTURE: Function Declaration VS Expression
 
 //Function Declaration
-// function percentageOfWorld1(population) {
-//   const percentageInWorld = (population / 7900) * 100;
-//   return percentageInWorld.toFixed(1);
-// }
+function percentageOfWorld1(population) {
+  const percentageInWorld = (population / 7900) * 100;
+  return percentageInWorld.toFixed(1);
+}
 
 // const result11 = percentageOfWorld1(1412);
 // const result12 = percentageOfWorld1(1408);
@@ -163,32 +163,61 @@ const capitalCity = "Islamabad";
 
 //Lecture: Arrow Function
 
-const percentageOfWorld3 = (population) =>
-  (percentage = (population / 7900) * 100);
+// const percentageOfWorld3 = (population) =>
+//   (percentage = (population / 7900) * 100);
 
 // console.log(percentageOfWorld3(population));
 
 //LECTURE: Functions Calling Other Functions
 
-const describePopulation = (country, population) => {
-  const percentageInWorld = percentageOfWorld3(population);
-  return `${country} has  ${population} million people which is about ${percentageInWorld.toFixed(
-    2
-  )}% of the world.`;
-};
+// const describePopulation = (country, population) => {
+//   const percentageInWorld = percentageOfWorld3(population);
+//   return `${country} has  ${population} million people which is about ${percentageInWorld.toFixed(
+//     2
+//   )}% of the world.`;
+// };
 
-console.log(describePopulation(country, population));
+// console.log(describePopulation(country, population));
 
 //LECTURE: Functions Calling Other Functions
 
-const fruitPieces = (fruit) => {
-  return fruit * 4;
-};
+// const fruitPieces = (fruit) => {
+//   return fruit * 4;
+// };
 
-const fruitProcessor = (apple, mango) => {
-  const applePieces = fruitPieces(apple);
-  const mangoPieces = fruitPieces(mango);
-  return `Juice with ${applePieces} apple and ${mangoPieces} mango pieces is ready`;
-};
+// const fruitProcessor = (apple, mango) => {
+//   const applePieces = fruitPieces(apple);
+//   const mangoPieces = fruitPieces(mango);
+//   return `Juice with ${applePieces} apple and ${mangoPieces} mango pieces is ready`;
+// };
 
-console.log(fruitProcessor(3, 2));
+// console.log(fruitProcessor(3, 2));
+
+//Lecture: Arrays
+
+// const calcAge = (birthYear) => 2023 - birthYear;
+
+// const years = [1997, 2010, 2018, 1970, 1976];
+
+// console.log(calcAge(years[0]));
+
+// const birthYear = [calcAge(years[1]), calcAge(years[years.length - 1])];
+
+// console.log(birthYear);
+
+//LECTURE: Introduction to Arrays
+
+const populations = [231, 1412, 1408, 339];
+
+if (populations.length == 4) {
+  console.log("The populations array has four elements ");
+} else {
+  console.log("The array do not contain four elements");
+}
+
+const percentages = [
+  percentageOfWorld1(populations[0]),
+  percentageOfWorld1(populations[1]),
+  percentageOfWorld1(populations[populations.length - 1]),
+];
+console.log(percentages);
