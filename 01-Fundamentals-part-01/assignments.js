@@ -207,17 +207,100 @@ function percentageOfWorld1(population) {
 
 //LECTURE: Introduction to Arrays
 
-const populations = [231, 1412, 1408, 339];
+// const populations = [231, 1412, 1408, 339];
 
-if (populations.length == 4) {
-  console.log("The populations array has four elements ");
-} else {
-  console.log("The array do not contain four elements");
-}
+// if (populations.length == 4) {
+//   console.log("The populations array has four elements ");
+// } else {
+//   console.log("The array do not contain four elements");
+// }
 
-const percentages = [
-  percentageOfWorld1(populations[0]),
-  percentageOfWorld1(populations[1]),
-  percentageOfWorld1(populations[populations.length - 1]),
-];
-console.log(percentages);
+// const percentages = [
+//   percentageOfWorld1(populations[0]),
+//   percentageOfWorld1(populations[1]),
+//   percentageOfWorld1(populations[populations.length - 1]),
+// ];
+// console.log(percentages);
+
+//LECTURE: Basic Array Operations (Methods)
+
+// const neighbors = ["Afghanistan", "Iran", "India", "China"];
+
+// console.log(neighbors);
+
+// neighbors.push("Utopia");
+
+// console.log(neighbors);
+
+// neighbors.pop();
+
+// if (!neighbors.includes("Germany")) {
+//   console.log("Probably not a central european country 😅");
+// }
+
+// const chinaIndex = neighbors.indexOf("China");
+// neighbors[chinaIndex] = "Peoples Republic of China";
+// console.log(neighbors);
+
+//LECTURE: Introduction to Objects
+
+// const myCountry = {
+//   country: "Pakistan",
+//   capital: capitalCity,
+//   language: language,
+//   population: population,
+//   neighbors: ["Iran", "Afghanistan", "China", "India"],
+// };
+
+//Lecture: Dot vs Bracket Notation
+
+const getCountryDescription = () => {
+  return `${myCountry.country} has ${myCountry["population"] - 2}, ${
+    myCountry.neighbors.length
+  } neighboring countries and a capital called ${myCountry.capital}.`;
+};
+
+// console.log(getCountryDescription());
+
+//Lecture: Object Methods
+
+const person = {
+  name: "Shoaib",
+  birthYear: 1997,
+  occupation: "Software Engineer",
+  hasDriversLicense: false,
+  calAge: function () {
+    return (this.age = 2023 - this.birthYear);
+  },
+  getPersonData: function () {
+    this.introduction = `${this.name} is a ${this.calAge()} years old ${
+      this.occupation
+    }, and he has ${this.hasDriversLicense ? "a" : "no"} driver's license.`;
+    // return this.introduction;
+  },
+};
+
+person.getPersonData();
+
+// console.log(person.introduction);
+
+//Assignment Object Methods:
+
+const myCountry = {
+  country: "Pakistan",
+  capital: capitalCity,
+  language: language,
+  population: population,
+  neighbors: [],
+  describe: function () {
+    this.description = `${this.country} has a population of ${this.population}, ${this.neighbors.length} neighboring countries and a capital called ${this.capital}. The people of${this.country} speak ${this.language}`;
+  },
+  checkIsIsland: function () {
+    this.isIsland = this.neighbors.length === 0 ? true : false;
+  },
+};
+
+myCountry.describe();
+myCountry.checkIsIsland();
+
+console.log(myCountry.isIsland);
