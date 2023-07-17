@@ -303,4 +303,67 @@ const myCountry = {
 myCountry.describe();
 myCountry.checkIsIsland();
 
-console.log(myCountry.isIsland);
+// console.log(myCountry.isIsland);
+
+//Assignment: Looping through Arrays
+
+const birthYears = [1991, 1986, 1998, 2009, 2017];
+
+const agesInYears = new Array();
+
+const getAges = (birthYears) => {
+  for (let i = 0; i < birthYears.length; i++) {
+    agesInYears.push(2023 - birthYears[i]);
+  }
+};
+
+getAges(birthYears);
+// console.log(birthYears);
+// console.log(agesInYears);
+
+//LECTURE: Iteration: The for Loop
+
+// for (let i = 0; i <= 50; i++) {
+//   console.log(`Vote number ${i} is currently voting.`);
+// }
+
+//LECTURE: LOOPING ARRAYS, CONTINUE, BREAK
+
+const populations = [231, 1412, 1408, 339];
+
+const percentages2 = [];
+for (let i = 0; i < populations.length; i++) {
+  const percentage = percentageOfWorld1(populations[i]);
+  percentages2.push(percentage);
+  break;
+}
+
+// console.log(percentages2);
+
+//LECTURE: Looping Backwards and Loops in Loops
+
+const listOfNeighbors = [
+  ["Canada", "Mexico"],
+  ["Spain"],
+  ["Norway", "Sweden", "Russia"],
+];
+
+for (let i = 0; i < listOfNeighbors.length; i++) {
+  if (listOfNeighbors[i].length > 1) {
+    for (let j = 0; j < listOfNeighbors[i].length; j++) {
+      console.log(`Neighbor: ${listOfNeighbors[i][j]}`);
+    }
+  }
+}
+
+//Lecture: The while loop
+
+const percentages3 = [];
+let i = 0;
+while (i < populations.length) {
+  let perc = percentageOfWorld1(populations[i]);
+  percentages3.push(perc);
+  i++;
+}
+
+console.log(percentages3);
