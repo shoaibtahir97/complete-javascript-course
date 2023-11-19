@@ -66,31 +66,35 @@ const game = {
 };
 
 // Problem # 1
-for (let i = 0; i < game.scored.length; i++) {
-  console.log(`Goal: ${i + 1}: ${game.scored[i]}`);
-}
-////--------OR-------/////
-const goals = Object.entries(game.scored);
-for (const [goal, goaler] of goals) {
-  console.log(`Goal: ${Number(goal) + 1}: ${goaler}`);
-}
+// for (const [index, item] of game.scored.entries()) {
+//   console.log(`Goal ${index + 1}: ${item}`);
+// }
+// ////--------OR-------/////
+// for (let i = 0; i < game.scored.length; i++) {
+//   console.log(`Goal: ${i + 1}: ${game.scored[i]}`);
+// }
+// ////--------OR-------/////
+// const goals = Object.entries(game.scored);
+// for (const [goal, goaler] of goals) {
+//   console.log(`Goal: ${Number(goal) + 1}: ${goaler}`);
+// }
 
 // Problem # 2
-const gameValues = Object.values(game.odds);
-console.log(gameValues);
+// const gameValues = Object.values(game.odds);
 
-let average = 0;
-for (let i = 0; i < gameValues.length; i++) {
-  average += gameValues[i];
-}
-////--------OR-------/////
+// let average = 0;
+// for (let i = 0; i < gameValues.length; i++) {
+//   average += gameValues[i];
+// }
+// average = average / gameValues.length;
+// console.log(average);
 
 // Problem # 3
-const entries = Object.entries(game.odds);
+// const entries = Object.entries(game.odds);
 
-for (let [key, value] of entries) {
-  console.log("Problem #3", `Odd of victory ${game[key] ?? "odd"}: ${value}`);
-}
+// for (let [key, value] of entries) {
+//   console.log("Problem #3", `Odd of victory ${game[key] ?? "odd"}: ${value}`);
+// }
 
 // Problem # 4
 const scorers = {};
@@ -110,3 +114,20 @@ for (const [i, player] of game.scored.entries())
   console.log(`Goal ${i + 1}: ${player}`);
 
 // Problem # 2
+const odds = Object.values(game.odds);
+
+let average = 0;
+
+for (const odd of odds) average += odd;
+average /= odds.length;
+
+console.log(average);
+
+//Problem # 3;
+
+const oddes = Object.entries(game.odds);
+
+for (const [team, odd] of oddes) {
+  const teamStr = team === "x" ? "draw" : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr} : ${odd}`);
+}
