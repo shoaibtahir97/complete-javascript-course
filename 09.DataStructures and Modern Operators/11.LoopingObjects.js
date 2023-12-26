@@ -50,7 +50,7 @@ for (const [day, { open, close }] of entries) {
   //console.log(`On ${day} we open at ${open} and close at ${close}`);
 }
 
-const discrepancy = {
+let discrepancy = {
   invoice_item_not_found_in_deliverynote: "",
   itemdescription:
     "TECHTOP IEC IE3 T3AR132M2-4 12,5 CV (9,2 KW) 1800 RPM 230/460 V 60 HZ B3 B5, sondas PTC, 9 hilos, caja derecha",
@@ -59,5 +59,7 @@ const discrepancy = {
 };
 
 const data = Object.entries(discrepancy);
+for (const [key, value] of data) {
+}
 
-console.log(data);
+console.log(discrepancy);
