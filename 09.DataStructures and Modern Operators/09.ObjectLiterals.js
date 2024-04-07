@@ -29,7 +29,7 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
-  //2. If we want to create a function method then we need to write a property and assign a function to it which has the logic but in ES6 object literal we can remove the function keyword and do the same thing
+  //2. If we want to create a function method then we need to write as a property and assign a function to it which has the logic but in ES6 object literal we can remove the function keyword and do the same thing
   order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
