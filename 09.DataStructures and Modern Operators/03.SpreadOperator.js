@@ -102,9 +102,9 @@ function orderBiryani(ing1, ing2, ing3) {
   console.log(`Your ${ing1} Biryani is ready with extra ${ing2} and ${ing3}`);
 }
 const ingredients = [
-  // prompt("Let's make Biryani for you, Please enter your ingredient # 1,"),
-  //   prompt("Please enter your ingredient # 1"),
-  // prompt("Please enter your ingredient # 1"),
+  prompt("Let's make Biryani for you, Please enter your ingredient # 1,"),
+  prompt("Please enter your ingredient # 2"),
+  prompt("Please enter your ingredient # 3"),
 ];
 
 orderBiryani(...ingredients);
