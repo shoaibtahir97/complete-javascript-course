@@ -1,6 +1,6 @@
 //Maps
 /*
-A Map is similar to object. The data is stored in key value pairs. But the difference is that the key can be of any data type. In objects the keys are only strings. But in maps they can objects, arrays or other maps
+A Map is similar to object. The data is stored in key value pairs. But the difference is that the key can be of any data type. In objects the keys are only strings. But in maps they can be objects, arrays or other maps
 1. To add key value pairs in a map we use .set() method. The first parameter is the key and second is its value. The method returns the map with updated value. 
 2. Chaining the set method. The set method can be called as many times right after first is defined. No need to call it seperately. This is because the set method returns the updated map to which we can call the set method again. 
 3. To get the values from the map we use .get() method. It accepts a parameter which is the key. While accessing the values data type of key is important.
