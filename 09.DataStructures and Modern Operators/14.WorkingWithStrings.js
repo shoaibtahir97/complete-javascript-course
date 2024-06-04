@@ -54,7 +54,7 @@ console.log(checkMiddleSeat("11B")); //11 is row and ABC DEF are seats
 console.log(checkMiddleSeat("23C"));
 console.log(checkMiddleSeat("1E"));
 
-// --------------------------Part-02-----------------------------------------------
+// --------------------------------Part-02-----------------------------------------------
 
 // ------------------------LowerCase and UpperCase----------------------------------
 
@@ -97,16 +97,31 @@ const convertCurrency = (GBCurr) => {
 
 console.log(convertCurrency("288,97£"));
 
+// Replace All
+function replaceAll(str) {
+  console.log(str.replace(/door/g, "gate"));
+  console.log(str.replaceAll("door", "gate"));
+}
+replaceAll("All passengers come to boarding door 23. Boarding door 23!");
+
+// ------------------------Boolean Methods----------------------------------
+const newPlane = "Airbus A320neo";
+
+console.log(newPlane.includes("320")); //true
+console.log(newPlane.includes("Boeing")); // false
+console.log(newPlane.endsWith("neo")); // true
+console.log(newPlane.startsWith("Air")); //false
+
 // --------------------------Part-03-----------------------------------------------
 
-const capitalizeName = (name) => {
-  const names = name.split(" ");
-  const nameUpper = [];
-  for (const n of names) {
-    nameUpper.push(n.replace(n[0], n[0].toUpperCase()));
-  }
-  console.log(nameUpper.join(" "));
-};
+// const capitalizeName = (name) => {
+//   const names = name.split(" ");
+//   const nameUpper = [];
+//   for (const n of names) {
+//     nameUpper.push(n.replace(n[0], n[0].toUpperCase()));
+//   }
+//   console.log(nameUpper.join(" "));
+// };
 
-capitalizeName("jessica ann smith davis");
-capitalizeName("jonas schmedtmann");
+// capitalizeName("jessica ann smith davis");
+// capitalizeName("jonas schmedtmann");
