@@ -112,6 +112,21 @@ console.log(newPlane.includes("Boeing")); // false
 console.log(newPlane.endsWith("neo")); // true
 console.log(newPlane.startsWith("Air")); //false
 
+// Practice Exercise
+
+const checkBaggage = (baggage) => {
+  const loweredBaggage = baggage.toLowerCase();
+
+  if (loweredBaggage.includes("knife") || loweredBaggage.includes("gun")) {
+    console.log("You are not allowed to board");
+  } else {
+    console.log("welcome aboard");
+  }
+};
+checkBaggage("I have a laptop, some food and a pocket Knife");
+checkBaggage("Socks and camera");
+checkBaggage("Got some snacks and a gUn for protection");
+
 // --------------------------Part-03-----------------------------------------------
 
 // const capitalizeName = (name) => {
