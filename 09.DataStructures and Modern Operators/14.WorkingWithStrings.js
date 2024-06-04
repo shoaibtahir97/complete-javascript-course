@@ -1,3 +1,4 @@
+"use strict";
 // --------------------------Part-01-----------------------------------------------
 
 const airline = "PIA Pakistan International Airlines";
@@ -55,7 +56,9 @@ console.log(checkMiddleSeat("1E"));
 
 // --------------------------Part-02-----------------------------------------------
 
-// Fix capitalization issue in name
+// ------------------------LowerCase and UpperCase----------------------------------
+
+// Fix capitalization issue in name (My Approach)
 const passenger = "jOnAS"; //Jonas
 
 const first = passenger.slice(0, 1).toUpperCase();
@@ -64,3 +67,46 @@ const rest = passenger.slice(1).toLowerCase();
 const newPassenger = first + rest;
 
 console.log(newPassenger);
+// Fix Capitalization issue in name (Jonas Approach)
+const passenger2 = "sHoAIb";
+
+const loweredPassenger = passenger2.toLowerCase();
+const fixedPassenger = `${passenger2[0].toUpperCase()}${loweredPassenger.slice(
+  1
+)}`;
+console.log("fixedPassenger", fixedPassenger);
+
+// ------------------------Trim Spaces----------------------------------
+
+// Comparing Email to check validity
+
+const compareEmail = function (originalEmail, enteredEmail) {
+  enteredEmail = enteredEmail.toLowerCase().trim();
+  // In ES6 we now have trimStart and trimEnd to trim from start or end
+  return originalEmail === enteredEmail;
+};
+
+console.log(compareEmail("hello@jonas.io", "  Hello@Jonas.Io \n"));
+
+// ------------------------Replacing Characters----------------------------------
+
+const convertCurrency = (GBCurr) => {
+  const USCurr = GBCurr.replace(",", ".").replace("£", "$");
+  return USCurr;
+};
+
+console.log(convertCurrency("288,97£"));
+
+// --------------------------Part-03-----------------------------------------------
+
+const capitalizeName = (name) => {
+  const names = name.split(" ");
+  const nameUpper = [];
+  for (const n of names) {
+    nameUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(nameUpper.join(" "));
+};
+
+capitalizeName("jessica ann smith davis");
+capitalizeName("jonas schmedtmann");
