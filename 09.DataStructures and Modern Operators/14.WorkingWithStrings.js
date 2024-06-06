@@ -129,14 +129,59 @@ checkBaggage("Got some snacks and a gUn for protection");
 
 // --------------------------Part-03-----------------------------------------------
 
-// const capitalizeName = (name) => {
-//   const names = name.split(" ");
-//   const nameUpper = [];
-//   for (const n of names) {
-//     nameUpper.push(n.replace(n[0], n[0].toUpperCase()));
-//   }
-//   console.log(nameUpper.join(" "));
-// };
+// ------------------------Split Method and Join Method----------------------------------
 
-// capitalizeName("jessica ann smith davis");
-// capitalizeName("jonas schmedtmann");
+console.log("a+very+nice+string".split("+"));
+
+const [firstName, middleName, lastName] = "Muhammad Shoaib Tahir".split(" ");
+
+const newName = [firstName, middleName, lastName.toUpperCase()].join(" ");
+
+console.log(newName);
+
+// Practice Exercise
+const capitalizeName = (name) => {
+  const names = name.split(" ");
+  const nameUpper = [];
+  for (const n of names) {
+    nameUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(nameUpper.join(" "));
+};
+
+capitalizeName("jessica ann smith davis");
+capitalizeName("jonas schmedtmann");
+
+// ----------Padding Method(Adding a number of characters in string until the string reaches a desired length)-------------
+
+const message = " Go to gate 23!";
+console.log(message.padStart(25, "+").padEnd(30, "+")); //length of string after padding and character to add in padding.
+console.log("jonas".padEnd(25, "-"));
+
+// Practice Exercise
+
+const maskCreditCard = function (number) {
+  const str = number + "";
+  const last4Digit = str.slice(-4);
+  console.log(last4Digit.padStart(str.length, "*"));
+};
+
+maskCreditCard(1234567891011121);
+maskCreditCard(1823091309108012);
+
+// ----------Repeat Methods(repeats string)-------------
+
+const message2 = "Bad weather... All Departures Delayed";
+
+console.log(message2.repeat(5));
+
+// Practice Exercise
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} number of planes in queue ${"✈".repeat(n)}`);
+};
+planesInLine(7);
+
+/*
+More methods available at https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+*/
