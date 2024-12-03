@@ -23,6 +23,8 @@ function checkIn(flightNum, passenger) {
 
 // checkIn(flight, shoaib);
 console.log(flight, shoaib);
+console.log(flight);
+console.log(shoaib);
 
 const changePassport = function (passenger) {
   passenger.passport = Math.trunc(Math.random() * 100000000);
@@ -31,3 +33,21 @@ const changePassport = function (passenger) {
 changePassport(shoaib);
 checkIn(flight, shoaib);
 console.log(flight, shoaib);
+
+let age = 27; //---> points to an address in memory
+const newAge = age; //A new Memory address alloted to it.
+age = 28; // The same memory address but the value was changed.
+
+console.log("age", age);
+console.log("newAge", newAge);
+
+const abc = {
+  name: "John",
+  number: 8102309,
+};
+
+const person = abc;
+
+person.name = "Doe";
+console.log("abc", abc);
+console.log("person", person);
