@@ -1,9 +1,18 @@
 // Array Filter Method
 /*
-- In Find method the first value that matches the field is returned, but if there are multiple values with the same matching condition you wont be able to get it.
-- With Filter you can get multiple results when it matches.
-- Filter always returns an array, if the value matches the condition the value is returned inside the array, if no matching elements then   empty array is returned.
+Filter always returns an array, if the value matches the condition(boolean) the value is returned inside the array, if no matching elements then empty array is returned.
 */
+const movements = [5000, 3400, -150, -790, -3210, -1000, 8500, -30];
 
+const deposits = movements.filter((mov) => {
+  return mov > 0;
+});
 
+const withdrawal = movements.filter((mov) => mov < 0);
 
+const withdrawalFor = [];
+
+for (const mov of movements)
+  if (mov < 0) {
+    withdrawalFor.push(mov);
+  }
