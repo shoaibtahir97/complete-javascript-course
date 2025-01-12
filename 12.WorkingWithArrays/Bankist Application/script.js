@@ -61,6 +61,39 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+// 1. Displayed Movements/Transactions by creating elements in the DOM
+const displayMovements = movements => {
+  containerMovements.innerHTML = '';
+  movements.forEach((mov, ind) => {
+    const movType = mov > 0 ? 'deposit' : 'withdrawal';
+
+    const html = `
+    <div class="movements__row">
+          <div class="movements__type movements__type--${movType}">${
+      ind + 1
+    } ${movType}</div>
+          <div class="movements__value">${mov}€</div>
+        </div>`;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+    // insertAdjacentHTML('afterbegin', html) is used to insert each movement at the beginning of the container, so all movements are rendered. If you used innerHTML inside the loop, it would overwrite the content each time, leaving only the last movement rendered.
+  });
+};
+
+// 2. Compute Usernames
+const createUserNames = function (accs) {
+  accs.forEach(acc => {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+createUserNames(accounts);
+displayMovements(account1.movements);
+console.log(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
