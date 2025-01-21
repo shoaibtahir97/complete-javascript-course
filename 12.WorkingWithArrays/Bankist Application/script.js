@@ -61,7 +61,7 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-// 1. Displayed Movements/Transactions by creating elements in the DOM
+// 1. Displayed Movements/Transactions by creating elements in the DOM using insertAdjacentHTML
 const displayMovements = movements => {
   containerMovements.innerHTML = '';
   movements.forEach((mov, ind) => {
@@ -91,9 +91,39 @@ const createUserNames = function (accs) {
   });
 };
 
+// const displayTotalDeposits = function (movements) {
+//   const totalDeposits = movements
+//     .filter(filter => filter > 0)
+//     .map(deposit => deposit * 1.03)
+//     .reduce((acc, cur) => acc + cur, 0);
+
+//   labelSumIn.innerText = `${totalDeposits}$`;
+// };
+
+// const displayTotalWithdrawals = function (movements) {
+//   const totalWithdrawals = movements
+//     .filter(mov => mov < 0)
+//     .reduce((acc, cur) => acc + currencies, 0);
+// };
+
+const calcDisplaySummary = movements => {
+  const income = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, cur) => acc + cur, 0);
+
+  labelSumIn.textContent = income;
+
+  const outgoes = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, cur) => acc + cur, 0);
+
+  labelSumOut.textContent = outgoes;
+};
+
 createUserNames(accounts);
 displayMovements(account1.movements);
-console.log(accounts);
+calcDisplaySummary(account1.movements);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
