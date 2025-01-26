@@ -91,33 +91,26 @@ const createUserNames = function (accs) {
   });
 };
 
-// const displayTotalDeposits = function (movements) {
-//   const totalDeposits = movements
-//     .filter(filter => filter > 0)
-//     .map(deposit => deposit * 1.03)
-//     .reduce((acc, cur) => acc + cur, 0);
-
-//   labelSumIn.innerText = `${totalDeposits}$`;
-// };
-
-// const displayTotalWithdrawals = function (movements) {
-//   const totalWithdrawals = movements
-//     .filter(mov => mov < 0)
-//     .reduce((acc, cur) => acc + currencies, 0);
-// };
-
+// 3. Display Summary
 const calcDisplaySummary = movements => {
   const income = movements
     .filter(mov => mov > 0)
     .reduce((acc, cur) => acc + cur, 0);
 
-  labelSumIn.textContent = income;
+  labelSumIn.textContent = `${income}€`;
 
   const outgoes = movements
     .filter(mov => mov < 0)
     .reduce((acc, cur) => acc + cur, 0);
 
-  labelSumOut.textContent = outgoes;
+  labelSumOut.textContent = `${Math.abs(outgoes)}€`;
+
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter((int, i, arr) => int >= 1)
+    .reduce((acc, cur) => acc + cur, 0);
+  labelSumInterest.textContent = `${interest}€`;
 };
 
 createUserNames(accounts);
