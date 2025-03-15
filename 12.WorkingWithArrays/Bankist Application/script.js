@@ -47,6 +47,7 @@ const labelTimer = document.querySelector('.timer');
 const containerApp = document.querySelector('.app');
 const containerMovements = document.querySelector('.movements');
 
+const loginForm = document.querySelector('.login');
 const btnLogin = document.querySelector('.login__btn');
 const btnTransfer = document.querySelector('.form__btn--transfer');
 const btnLoan = document.querySelector('.form__btn--loan');
@@ -92,7 +93,7 @@ const createUserNames = function (accs) {
 };
 
 // 3. Display Summary
-const calcDisplaySummary = movements => {
+const calcDisplaySummary = (movements, interestRate) => {
   const income = movements
     .filter(mov => mov > 0)
     .reduce((acc, cur) => acc + cur, 0);
@@ -107,26 +108,81 @@ const calcDisplaySummary = movements => {
 
   const interest = movements
     .filter(mov => mov > 0)
-    .map(deposit => (deposit * 1.2) / 100)
+    .map(deposit => (deposit * interestRate) / 100)
     .filter((int, i, arr) => int >= 1)
     .reduce((acc, cur) => acc + cur, 0);
   labelSumInterest.textContent = `${interest}€`;
 };
 
+//
+const calcDisplayBalance = acc => {
+  acc.balance = acc.movements.reduce((acc, cur) => {
+    return acc + cur;
+  }, 0);
+
+  labelBalance.textContent = `${acc.balance} €`;
+};
+
+function showLogoutBtn() {
+  loginForm.innerHTML = `<button class="logout_btn" onclick="${() =>
+    logout()}">Logout</button>`;
+}
+
+let currentAccount;
+
+function updateUI() {
+  calcDisplayBalance(currentAccount);
+  // Display Movements
+  displayMovements(currentAccount.movements);
+  // Display Balance Summary
+  calcDisplaySummary(currentAccount.movements, currentAccount.interestRate);
+}
+
+// 4. User Login
+const loginUser = event => {
+  event.preventDefault();
+  currentAccount = accounts.find(
+    account => account.username === inputLoginUsername.value
+  );
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    // Display UI and welcome message
+    containerApp.style.opacity = 100;
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+    // Update UI
+    updateUI();
+    // showLogoutBtn();
+    inputLoginPin.value = '';
+    inputLoginUsername.value = '';
+  }
+};
+
+const handleTransferMoney = e => {
+  e.preventDefault();
+  const receiverAcc = accounts.find(
+    account => account.username === inputTransferTo.value
+  );
+  const amount = Number(inputTransferAmount.value);
+
+  if (!receiverAcc) {
+    alert('Transfer account not found');
+  } else if (receiverAcc.username === currentAccount.username) {
+    alert('Cannot transfer to same account');
+  } else if (!amount || amount <= 0) {
+    alert('Amount should be greater than 0');
+  } else if (currentAccount.balance < amount) {
+    alert('Insufficient balance');
+  } else {
+    alert('Amount transferred successfully');
+    receiverAcc.movements.push(amount);
+    currentAccount.movements.push(-amount);
+    inputTransferAmount.value = inputTransferAmount.value = '';
+    updateUI();
+  }
+};
+
+// Script Execution Starts Here
 createUserNames(accounts);
-displayMovements(account1.movements);
-calcDisplaySummary(account1.movements);
-
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// LECTURES
-
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
-
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-/////////////////////////////////////////////////
+btnLogin.addEventListener('click', e => loginUser(e));
+btnTransfer.addEventListener('click', e => handleTransferMoney(e));
