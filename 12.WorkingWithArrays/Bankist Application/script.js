@@ -182,7 +182,27 @@ const handleTransferMoney = e => {
   }
 };
 
+const handleCloseAccount = e => {
+  e.preventDefault();
+
+  if (!inputCloseUsername || !inputClosePin) {
+    alert('Username/pin is required');
+  } else if (
+    inputCloseUsername.value === currentAccount.username &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    const closeAccount = account =>
+      account.username === inputCloseUsername.value;
+
+    accounts.splice(accounts.findIndex(closeAccount), 1);
+    console.log('accounts', accounts);
+    inputClosePin.value = inputCloseUsername.value = '';
+    containerApp.style.opacity = 0;
+  }
+};
+
 // Script Execution Starts Here
 createUserNames(accounts);
 btnLogin.addEventListener('click', e => loginUser(e));
 btnTransfer.addEventListener('click', e => handleTransferMoney(e));
+btnClose.addEventListener('click', e => handleCloseAccount(e));
