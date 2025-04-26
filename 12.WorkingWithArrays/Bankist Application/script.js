@@ -182,6 +182,16 @@ const handleTransferMoney = e => {
   }
 };
 
+const handleRequestLoan = e => {
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value) / 10;
+  if (amount > 0 && currentAccount.movements.some(mov => mov > amount / 10)) {
+    currentAccount.movements.push(amount);
+    console.log(currentAccount);
+    updateUI();
+  }
+};
+
 const handleCloseAccount = e => {
   e.preventDefault();
 
@@ -205,4 +215,5 @@ const handleCloseAccount = e => {
 createUserNames(accounts);
 btnLogin.addEventListener('click', e => loginUser(e));
 btnTransfer.addEventListener('click', e => handleTransferMoney(e));
+btnLoan.addEventListener('click', e => handleRequestLoan(e));
 btnClose.addEventListener('click', e => handleCloseAccount(e));
